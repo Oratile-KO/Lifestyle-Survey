@@ -67,3 +67,27 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.rating-table {
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.rating-table th,
+.rating-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.rating-table tr:nth-child(n+2):nth-child(-n+5) td,
+.rating-table tr:nth-child(n+2):nth-child(-n+5) th {
+  border-color: #0d6efd; 
+}
+
+.rating-table th {
+  background: #b1b3b6;
+}
+.rating-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
