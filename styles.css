@@ -30,7 +30,13 @@
 
 .form-section {
     display: flex;
-    gap: 7rem;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.section-title {
+    min-width: 140px; 
+    margin-top: 0rem; 
 }
 
 .input-group {
@@ -43,5 +49,11 @@
   padding: 0.5rem;
   border: 1px solid #0d6efd;
   border-radius: 4px;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
