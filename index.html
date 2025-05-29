@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h3 class="app-title">Surveys</h3>
+        <nav class="nav-buttons">
+            <button id="fillSurveybtn" class="nav-button active">FILL OUT SURVEY</button>
+            <button id="viewResultsBtn" class="nav-button">VIEW SURVEY RESULTS</button>
+        </nav>
+    </header>
+    <main class="survey-container">
+        <form id="surveyForm">
+            <div class="form-section">
+                <h5 class="section-title">Personal Details:</h5>
+                <div class="input-group">
+                    <div class="input-row">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="input-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-row">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+            <div class="input-row">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
