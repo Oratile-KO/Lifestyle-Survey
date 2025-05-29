@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifestyle Survey</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="app-header">
         <h3 class="app-title">Surveys</h3>
@@ -16,28 +18,52 @@
     </header>
     <main class="survey-container">
         <form id="surveyForm">
-    <div class="form-section">
-        <h5 class="section-title">Personal Details:</h5>
-        <div class="input-group">
-            <div class="input-row">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" required>
+            <div class="form-section">
+                <h5 class="section-title">Personal Details:</h5>
+                <div class="input-group">
+                    <div class="input-row">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="input-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-row">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    </div>
+                    <div class="input-row">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="tel" id="contactNumber" name="contactNumber" required>
+                    </div>
+                </div>
             </div>
-            <div class="input-row">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+            </br></br>
+            <div class="form-section">
+                <h5 class="section-title">What is your favourite food?</h5>
+                <div class="input-group favourite-food-group">
+                    <div class="input-row">
+                        <input type="checkbox" id="pizza" name="favouriteFood" value="Pizza">
+                        <label for="pizza">Pizza</label>
+                    </div>
+                    <div class="input-row">
+                        <input type="checkbox" id="sushi" name="favouriteFood" value="Sushi">
+                        <label for="sushi">Pasta</label>
+                    </div>
+                    <div class="input-row">
+                        <input type="checkbox" id="burger" name="favouriteFood" value="Burger">
+                        <label for="burger">Pap and Wors</label>
+                    </div>
+                    <div class="input-row">
+                        <input type="checkbox" id="salad" name="favouriteFood" value="Salad">
+                        <label for="salad">Other</label>
+                    </div>
+                </div>
             </div>
-            <div class="input-row">
-                <label for="dateOfBirth">Date of Birth</label>
-                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-            </div>
-            <div class="input-row">
-                <label for="contactNumber">Contact Number</label>
-                <input type="tel" id="contactNumber" name="contactNumber" required>
-            </div>
-        </div>
-    </div>
-</form>
+        </form>
+        </form>
     </main>
 </body>
+
 </html>
