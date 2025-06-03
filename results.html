@@ -1,18 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Results</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-       <header class="app-header">
+    <header class="app-header">
         <h3 class="app-title">Surveys</h3>
         <nav class="nav-buttons">
             <button id="fillSurveybtn" class="nav-button active">FILL OUT SURVEY</button>
             <button id="viewResultsBtn" class="nav-button">VIEW SURVEY RESULTS</button>
         </nav>
     </header>
+    <script>
+        document.getElementById('viewResultsBtn').addEventListener('click', function () {
+            window.location.href = 'results.html';
+        });
+        document.getElementById('fillSurveybtn').addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    </script>
+    <div class="results-container" style="max-width:600px;margin:2rem auto;">
+        <h2 style="text-align:center;">Survey Results</h2>
+        <!-- Table 1: General Stats -->
+        <table style="width:100%;margin-top:2rem;">
+            <tbody>
+                <tr>
+                    <td>Total number of surveys:</td>
+                    <td id="total"></td>
+                </tr>
+                <tr>
+                    <td>Average Age:</td>
+                    <td id="average"></td>
+                </tr>
+                <tr>
+                    <td>Oldest person who participated in survey:</td>
+                    <td id="oldest"></td>
+                </tr>
+                <tr>
+                    <td>Youngest person who participated in survey:</td>
+                    <td id="youngest"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Table 2: Food Percentages -->
+        <table style="width:100%;margin-top:2rem;">
+            <tbody>
+                <tr>
+                    <td>Percentage of people who like Pizza:</td>
+                    <td id="pizzaPercent"></td>
+                </tr>
+                <tr>
+                    <td>Percentage of people who like Pasta:</td>
+                    <td id="pastaPercent"></td>
+                </tr>
+                <tr>
+                    <td>Percentage of people who like Pap and Wors:</td>
+                    <td id="papPercent"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Table 3: Average Ratings -->
+        <table style="width:100%;margin-top:2rem;">
+            <tbody>
+                <tr>
+                    <td>People who like to watch movies:</td>
+                    <td id="avgMovies"></td>
+                </tr>
+                <tr>
+                    <td>People who like to listen to radio:</td>
+                    <td id="avgRadio"></td>
+                </tr>
+                <tr>
+                    <td>People who like to eat out:</td>
+                    <td id="avgEatOut"></td>
+                </tr>
+                <tr>
+                    <td>People who like to watch TV:</td>
+                    <td id="avgTV"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        fetch('http://localhost:3000/survey-stats')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('total').textContent = data.total;
+                document.getElementById('average').textContent = data.average;
+                document.getElementById('oldest').textContent = data.oldest;
+                document.getElementById('youngest').textContent = data.youngest;
+                document.getElementById('pizzaPercent').textContent = data.pizzaPercent + '%';
+                document.getElementById('pastaPercent').textContent = data.pastaPercent + '%';
+                document.getElementById('papPercent').textContent = data.papPercent + '%';
+                document.getElementById('avgMovies').textContent = data.avgMovies;
+                document.getElementById('avgRadio').textContent = data.avgRadio;
+                document.getElementById('avgEatOut').textContent = data.avgEatOut;
+                document.getElementById('avgTV').textContent = data.avgTV;
+            })
+            .catch(() => {
+                document.querySelector('.results-container').innerHTML = '<p>Could not load results.</p>';
+            });
+    </script>
 </body>
+
 </html>

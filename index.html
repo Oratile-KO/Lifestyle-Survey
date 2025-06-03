@@ -17,6 +17,14 @@
             <button id="viewResultsBtn" class="nav-button">VIEW SURVEY RESULTS</button>
         </nav>
     </header>
+    <script>
+        document.getElementById('viewResultsBtn').addEventListener('click', function () {
+            window.location.href = 'results.html';
+        });
+        document.getElementById('fillSurveybtn').addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    </script>
     <main class="survey-container">
         <form id="surveyForm">
             <div class="form-section">
@@ -119,4 +127,5 @@
         </form>
     </main>
 </body>
+
 </html>

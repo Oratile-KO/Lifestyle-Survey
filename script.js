@@ -90,3 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.getElementById('viewResultsBtn').addEventListener('click', function() {
+    window.location.href = 'results.html';
+});
+document.getElementById('fillSurveybtn').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
