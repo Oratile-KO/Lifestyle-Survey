@@ -87,25 +87,41 @@
         </table>
     </div>
     <script>
-        fetch('http://localhost:3000/survey-stats')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('total').textContent = data.total;
-                document.getElementById('average').textContent = data.average;
-                document.getElementById('oldest').textContent = data.oldest;
-                document.getElementById('youngest').textContent = data.youngest;
-                document.getElementById('pizzaPercent').textContent = data.pizzaPercent + '%';
-                document.getElementById('pastaPercent').textContent = data.pastaPercent + '%';
-                document.getElementById('papPercent').textContent = data.papPercent + '%';
-                document.getElementById('avgMovies').textContent = data.avgMovies;
-                document.getElementById('avgRadio').textContent = data.avgRadio;
-                document.getElementById('avgEatOut').textContent = data.avgEatOut;
-                document.getElementById('avgTV').textContent = data.avgTV;
-            })
-            .catch(() => {
-                document.querySelector('.results-container').innerHTML = '<p>Could not load results.</p>';
-            });
-    </script>
-</body>
+    function showNoSurveysMessage() {
+    document.querySelector('.results-container').innerHTML = `
+        <div style="text-align:center;">
+            <p>No Surveys Available.</p>
+            <button class="back-button" onclick="window.location.href='index.html'">
+                Back to Survey
+            </button>
+        </div>
+    `;
+}
 
+    fetch('http://localhost:3000/survey-stats')
+        .then(res => res.json())
+        .then(data => {
+            if (!data || data.total === 0) {
+                showNoSurveysMessage();
+                return;
+            }
+
+            document.getElementById('total').textContent = data.total;
+            document.getElementById('average').textContent = data.average;
+            document.getElementById('oldest').textContent = data.oldest;
+            document.getElementById('youngest').textContent = data.youngest;
+            document.getElementById('pizzaPercent').textContent = data.pizzaPercent + '%';
+            document.getElementById('pastaPercent').textContent = data.pastaPercent + '%';
+            document.getElementById('papPercent').textContent = data.papPercent + '%';
+            document.getElementById('avgMovies').textContent = data.avgMovies;
+            document.getElementById('avgRadio').textContent = data.avgRadio;
+            document.getElementById('avgEatOut').textContent = data.avgEatOut;
+            document.getElementById('avgTV').textContent = data.avgTV;
+        })
+        .catch(() => {
+            showNoSurveysMessage();
+        });
+</script>
+
+</body>
 </html>
